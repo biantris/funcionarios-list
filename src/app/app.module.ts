@@ -19,7 +19,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
-
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DashboardFuncionariosComponent } from './dashboard-funcionarios/dashboard-funcionarios.component';
 
