@@ -20,7 +20,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 
-import { FormsComponent } from './funcionarios/forms/forms.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DashboardFuncionariosComponent } from './dashboard-funcionarios/dashboard-funcionarios.component';
 
@@ -37,7 +36,6 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    FormsComponent,
     NavBarComponent,
     DashboardFuncionariosComponent
   ],
