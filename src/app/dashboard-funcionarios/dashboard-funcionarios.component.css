@@ -6,7 +6,7 @@
   top: 15px;
   left: 15px;
   right: 15px;
-  bottom: 15px;
+  bottom: 5rem;
 }
 .more-button {
   position: absolute;
@@ -37,4 +37,11 @@
 }
 .example-form-field {
   width: 300px;
+}
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+mat-card-subtitle {
+  margin-left: 4rem;
 }
