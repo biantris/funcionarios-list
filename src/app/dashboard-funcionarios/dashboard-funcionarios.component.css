@@ -1,0 +1,40 @@
+.grid-container {
+  margin: 20px;
+}
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.dashboard-card-content {
+  text-align: center;
+}
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+  height: 48px;
+  font-size: 17px;
+  }
+.padding-form {
+  margin-right: 8px;
+  font-size: 16px;
+  width:300px;
+  margin-bottom: 10px;
+}
+.padding-form input{
+  height: 15px;
+ }
+.padding-description{
+  padding: 15px;
+  text-align: justify;
+}
+.example-form-field {
+  width: 300px;
+}

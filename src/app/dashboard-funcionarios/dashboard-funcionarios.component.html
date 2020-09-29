@@ -1,0 +1,104 @@
+<div class="grid-container">
+
+  <!--Input para cadastrar novos sorvetes-->
+
+  <div class="container-input" >
+    <mat-form-field class="example-form-field">
+      <mat-label><mat-icon>search</mat-icon> Procure Funcionários</mat-label>
+      <input matInput type="text" [(ngModel)]="value">
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+     <h1 class="mat-h1">Cadastre um novo Funcionário</h1>
+
+     <mat-form-field appearance="outline" class="padding-form">
+         <mat-label>Nome</mat-label>
+         <input matInput type="text" class="form-control" [(ngModel)]="funcionarioName" placeholder="Nome">
+         <mat-icon matSuffix>name</mat-icon>
+         <mat-hint>Insira um Nome</mat-hint>
+       </mat-form-field>
+
+       <mat-form-field appearance="outline"  class="padding-form">
+           <mat-label>Cargo</mat-label>
+           <input matInput type="text" class="form-control" [(ngModel)]="funcionarioCalories" placeholder="Cargo">
+           <mat-icon matSuffix>work</mat-icon>
+           <mat-hint>Insira um Cargo</mat-hint>
+         </mat-form-field>
+
+         <mat-form-field appearance="outline"  class="padding-form">
+             <mat-label>Telefone</mat-label>
+             <input matInput type="text" class="form-control" [(ngModel)]="funcionarioDescription" placeholder="Telefone">
+             <mat-icon matSuffix>phone</mat-icon>
+             <mat-hint>Insira o Telefone</mat-hint>
+           </mat-form-field>
+
+
+       <div class="container-input" class="button-row">
+                 <button mat-raised-button color="warn" type="button" (click)="CreateRecord()" [disabled]="!funcionarioName || !funcionarioCalories|| !funcionarioDescription" class="btn btn-primary">
+                   Adicionar </button>
+       </div>
+
+  </div>
+
+<mat-grid-list cols="2" rowHeight="250px">
+
+ <!--Lista os já criados-->
+<mat-grid-tile *ngFor="let item of funcionarios">
+    <mat-card class="dashboard-card" *ngIf="!item.isEdit; else elseBlock">
+        <mat-card-header>
+
+            <mat-card-title>{{item.Name}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="EditRecord(item)">Editar</button>
+              <button mat-menu-item (click)="RemoveRecord(item.id)">Deletar</button>
+            </mat-menu>
+
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-subtitle>{{item.Calories}} </mat-card-subtitle>
+
+   <mat-divider></mat-divider>
+        <mat-card-content class="dashboard-card-content">
+          <div class="padding-description">
+              Telefone: {{item.Description}}
+          </div>
+        </mat-card-content>
+
+
+    </mat-card>
+    <ng-template #elseBlock>
+       <!-- Edicação de Exclusão do Funcionário-->
+      <mat-card>
+        <mat-form-field appearance="outline" class="padding-form">
+            <mat-label>Nome</mat-label>
+            <input matInput type="text" class="form-control" [(ngModel)]="item.EditName" placeholder="Editar Nome">
+            <mat-icon matSuffix></mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="padding-form">
+            <mat-label>Cargo</mat-label>
+            <input matInput type="text" class="form-control"  [(ngModel)]="item.EditCalories" placeholder="Editar Calorias">
+            <mat-icon matSuffix>work</mat-icon>
+          </mat-form-field>
+
+        <mat-form-field appearance="outline" class="padding-form">
+            <mat-label>Telefone</mat-label>
+            <input matInput type="text" class="form-control" [(ngModel)]="item.EditDescription" placeholder="Editar Descrição">
+            <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+    <div class="button-row">
+        <button  mat-raised-button color="warn" (click)="item.isEdit = false">Cancelar</button>
+        <button  mat-raised-button color="accent" (click)="UpdateRecord(item)">Atualizar</button>
+    </div>
+
+  </mat-card>
+</ng-template>
+  </mat-grid-tile>
+</mat-grid-list>
+</div>
+
