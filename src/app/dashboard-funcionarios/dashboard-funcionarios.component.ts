@@ -12,8 +12,8 @@ export class DashboardFuncionariosComponent implements OnInit {
 
   funcionarios: any;
   funcionarioName: string;
-  funcionarioCalories: string;
-  funcionarioDescription: number;
+  funcionarioCargo: string;
+  funcionarioTelefone: number;
 
   constructor(private funcionarioService: FuncionarioService) { }
 
@@ -24,8 +24,8 @@ export class DashboardFuncionariosComponent implements OnInit {
         id: e.payload.doc.id,
         isEdit: false,
         Name: e.payload.doc.data()['Name'],
-        Calories: e.payload.doc.data()['Calories'],
-        Description: e.payload.doc.data()['Description'],
+        Calories: e.payload.doc.data()['Cargo'],
+        Description: e.payload.doc.data()['Telefone'],
       };
       })
       console.log(this.funcionarios);
@@ -34,12 +34,12 @@ export class DashboardFuncionariosComponent implements OnInit {
       CreateRecord(){
         let record = {};
         record['Name'] = this.funcionarioName;
-        record['Calories'] = this.funcionarioCalories;
-        record['Description'] = this.funcionarioDescription;
+        record['Cargo'] = this.funcionarioCargo;
+        record['Telefone'] = this.funcionarioTelefone;
         this.funcionarioService.create_NewFuncionario(record).then(resp => {
           this.funcionarioName="";
-          this.funcionarioCalories= "";
-          this.funcionarioDescription = undefined;
+          this.funcionarioCargo= "";
+          this.funcionarioTelefone = undefined;
           console.log(resp);
         })
         .catch(error => {
@@ -52,14 +52,14 @@ export class DashboardFuncionariosComponent implements OnInit {
       EditRecord(record){
         record.isEdit = true;
         record.EditName = record.Name;
-        record.EditCalories = record.Calories;
-        record.EditDescription = record.Description;
+        record.EditCargo = record.EditCargo;
+        record.EditTelefone = record.Telefone;
       }
       UpdateRecord(recordRow){
         let record = {};
         record['Name']=recordRow.EditName;
-        record['Calories']= recordRow.EditCalories;
-        record['Description']= recordRow.EditDescription;
+        record['Cargo']= recordRow.EditCargo;
+        record['Telefone']= recordRow.EditTelefone;
         this.funcionarioService.update_Funcionario(recordRow.id, record);
         recordRow.isEdit = false;
       }

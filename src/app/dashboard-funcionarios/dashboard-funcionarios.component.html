@@ -1,6 +1,7 @@
+
 <div class="grid-container">
 
-  <!--Input para cadastrar novos sorvetes-->
+  <!--Input para cadastrar novos Funcionarios-->
 
   <div class="container-input" >
 
@@ -15,21 +16,21 @@
 
        <mat-form-field appearance="outline"  class="padding-form">
            <mat-label>Cargo</mat-label>
-           <input matInput type="text" class="form-control" [(ngModel)]="funcionarioCalories" placeholder="Cargo">
+           <input matInput type="text" class="form-control" [(ngModel)]="funcionarioCargo" placeholder="Cargo">
            <mat-icon matSuffix>work</mat-icon>
            <mat-hint>Insira um Cargo</mat-hint>
          </mat-form-field>
 
          <mat-form-field appearance="outline"  class="padding-form">
              <mat-label>Telefone</mat-label>
-             <input matInput type="text" class="form-control" [(ngModel)]="funcionarioDescription" placeholder="Telefone">
+             <input matInput type="text" class="form-control" [(ngModel)]="funcionarioTelefone" placeholder="Telefone">
              <mat-icon matSuffix>phone</mat-icon>
              <mat-hint>Insira o Telefone</mat-hint>
            </mat-form-field>
 
 
        <div class="container-input" class="button-row">
-                 <button mat-raised-button color="warn" type="button" (click)="CreateRecord()" [disabled]="!funcionarioName || !funcionarioCalories|| !funcionarioDescription" class="btn btn-primary">
+                 <button mat-raised-button color="primary" type="button" (click)="CreateRecord()" [disabled]="!funcionarioName || !funcionarioCargo|| !funcionarioTelefone" class="btn btn-primary">
                    Adicionar </button>
        </div>
 
@@ -53,19 +54,19 @@
 
           </mat-card-title>
         </mat-card-header>
-        <mat-card-subtitle>{{item.Calories}} </mat-card-subtitle>
+        <mat-card-subtitle>{{item.Cargo}}</mat-card-subtitle>
 
    <mat-divider></mat-divider>
         <mat-card-content class="dashboard-card-content">
-          <div class="padding-description">
-              Telefone: {{item.Description}}
+          <div class="padding-telefone">
+              Telefone: {{item.Telefone}}
           </div>
         </mat-card-content>
 
 
     </mat-card>
     <ng-template #elseBlock>
-       <!-- Edicação de Exclusão do Funcionário-->
+       <!-- Edição de Exclusão do Funcionário-->
       <mat-card>
         <mat-form-field appearance="outline" class="padding-form">
             <mat-label>Nome</mat-label>
@@ -75,18 +76,18 @@
 
         <mat-form-field appearance="outline" class="padding-form">
             <mat-label>Cargo</mat-label>
-            <input matInput type="text" class="form-control"  [(ngModel)]="item.EditCalories" placeholder="Editar Calorias">
+            <input matInput type="text" class="form-control"  [(ngModel)]="item.EditCargo" placeholder="Editar Cargo">
             <mat-icon matSuffix>work</mat-icon>
           </mat-form-field>
 
         <mat-form-field appearance="outline" class="padding-form">
             <mat-label>Telefone</mat-label>
-            <input matInput type="text" class="form-control" [(ngModel)]="item.EditDescription" placeholder="Editar Descrição">
+            <input matInput type="text" class="form-control" [(ngModel)]="item.EditTelefone" placeholder="Editar Número">
             <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field>
     <div class="button-row">
         <button  mat-raised-button color="warn" (click)="item.isEdit = false">Cancelar</button>
-        <button  mat-raised-button color="accent" (click)="UpdateRecord(item)">Atualizar</button>
+        <button  mat-raised-button color="primary" (click)="UpdateRecord(item)">Atualizar</button>
     </div>
 
   </mat-card>

@@ -27,6 +27,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 const appRoutes: Routes = [
   { path:'dashboard', component: DashboardFuncionariosComponent}
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavBarComponent,
-    DashboardFuncionariosComponent
+    DashboardFuncionariosComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ const appRoutes: Routes = [
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    MatInputModule
+    MatInputModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

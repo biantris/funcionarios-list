@@ -1,0 +1,3 @@
+<label>Image*:</Image>
+<input type="file" #inputFile class="form-control" (change)="upload($event)" accept=".jpg, .jpeg, .png" />
+<progress style="width: 100%;" max="100" [value]="(uploadPercet | async)"></progress>
