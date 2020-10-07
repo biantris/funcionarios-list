@@ -1,4 +1,16 @@
 
+<div class="search-div">
+
+  <mat-form-field class="search-form-field" floatLabel="never">
+    <input matInput [(ngModel)]="funcionarioName" placeholder="Procurar Funcionários" autocomplete="off" (keyup)="applyFilter()">
+    <button matButton matSuffix mat-icon aria-label="Clear" *ngIf="funcionarioName" (click)="OnSearchClear()">
+      <mat-icon color="primary">close</mat-icon>
+    </button>
+  </mat-form-field>
+
+</div>
+
+
 <div class="grid-container">
 
   <!--Input para cadastrar novos Funcionarios-->
@@ -12,7 +24,9 @@
          <input matInput type="text" class="form-control" [(ngModel)]="funcionarioName" placeholder="Nome">
          <mat-icon matSuffix>face</mat-icon>
          <mat-hint>Insira um Nome</mat-hint>
+
        </mat-form-field>
+
 
        <mat-form-field appearance="outline"  class="padding-form">
            <mat-label>Cargo</mat-label>
@@ -29,8 +43,9 @@
            </mat-form-field>
 
 
+
        <div class="container-input" class="button-row">
-                 <button mat-raised-button color="primary" type="button" (click)="CreateRecord()" [disabled]="!funcionarioName || !funcionarioCargo|| !funcionarioTelefone" class="btn btn-primary">
+                 <button mat-raised-button color="primary" type="button" (click)="CreateRecord()" [disabled]="!funcionarioName || !funcionarioCargo|| !funcionarioTelefone " class="btn btn-primary">
                    Adicionar </button>
        </div>
 
@@ -40,7 +55,7 @@
 
  <!--Lista os já criados-->
 <mat-grid-tile *ngFor="let item of funcionarios">
-    <mat-card class="dashboard-card" *ngIf="!item.isEdit; else elseBlock">
+    <mat-card class="dashboard-card" *ngIf="!item.isEdit; else elseBlock" >
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>{{item.Name}}
@@ -54,12 +69,12 @@
 
           </mat-card-title>
         </mat-card-header>
-        <mat-card-subtitle>{{item.Cargo}}</mat-card-subtitle>
+        <mat-card-subtitle>Cargo: {{item.Cargo}}</mat-card-subtitle>
 
    <mat-divider></mat-divider>
         <mat-card-content class="dashboard-card-content">
           <div class="padding-telefone">
-              Telefone: {{item.Telefone}}
+            Telefone: {{item.Telefone}}
           </div>
         </mat-card-content>
 
@@ -67,6 +82,7 @@
     </mat-card>
     <ng-template #elseBlock>
        <!-- Edição de Exclusão do Funcionário-->
+
       <mat-card>
         <mat-form-field appearance="outline" class="padding-form">
             <mat-label>Nome</mat-label>
@@ -85,6 +101,7 @@
             <input matInput type="text" class="form-control" [(ngModel)]="item.EditTelefone" placeholder="Editar Número">
             <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field>
+
     <div class="button-row">
         <button  mat-raised-button color="warn" (click)="item.isEdit = false">Cancelar</button>
         <button  mat-raised-button color="primary" (click)="UpdateRecord(item)">Atualizar</button>

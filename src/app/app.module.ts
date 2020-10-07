@@ -11,6 +11,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -27,7 +28,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PhotoComponent } from './photo/photo.component';
 
 
 const appRoutes: Routes = [
@@ -39,6 +41,7 @@ const appRoutes: Routes = [
     AppComponent,
     NavBarComponent,
     DashboardFuncionariosComponent,
+    PhotoComponent
 
   ],
   imports: [
@@ -62,7 +65,8 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     AngularFireStorageModule,
     MatInputModule,
-    Ng2SearchPipeModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

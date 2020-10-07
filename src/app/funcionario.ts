@@ -10,7 +10,7 @@ export class FuncionarioService {
     private firestore: AngularFirestore
   ) { }
 
-/* create_NewIcecream : Cria um novo registro na coleção especificada usando o método add */
+/* create_NewFuncionario : Cria um novo registro na coleção especificada usando o método add */
 create_NewFuncionario(record){
   return this.firestore.collection('Funcionarios').add(record);
 }

@@ -45,3 +45,10 @@
 mat-card-subtitle {
   margin-left: 4rem;
 }
+.example-form-field {
+  width: 200px;
+}
+
+.search-div {
+  margin: 1rem;
+}
