@@ -1,8 +1,12 @@
 .grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   margin: 20px;
 }
 .dashboard-card {
-  position: absolute;
+  positioflex-startn: absolute;
   top: 15px;
   left: 15px;
   right: 15px;
@@ -50,5 +54,10 @@ mat-card-subtitle {
 }
 
 .search-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
   margin: 1rem;
+  margin-left: 60px;
 }
