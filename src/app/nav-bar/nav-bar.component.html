@@ -1,17 +1,14 @@
 <mat-sidenav-container class="sidenav-container">
-
-    <mat-nav-list color="accent">
-      <a mat-list-item routerLink="/dashboard"> Dashboard</a>
-      <a href="#">Info</a>
-    </mat-nav-list>
+  <mat-nav-list color="accent">
+    <a mat-list-item routerLink="/dashboard"> Dashboard</a>
+    <a href="#">Info</a>
+  </mat-nav-list>
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-
-      <span> Funcionários-List<mat-icon>check</mat-icon></span>
+      <span>Funcionários-List <mat-icon>check</mat-icon></span>
     </mat-toolbar>
-    <!-- Add Content Here -->
 
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
